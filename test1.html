@@ -4,179 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Loadingt</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="Hover.css" />
   </head>
-  <style>
-    .img-zoom-container {
-      position: relative;
-    }
-
-    .img-zoom-lens {
-      position: absolute;
-      border: 1px solid #d4d4d4;
-      /*set the size of the lens:*/
-      width: 200px;
-      height: 200px;
-    }
-
-    .img-zoom-result {
-      border: 1px solid #d4d4d4;
-      /*set the size of the result div:*/
-      width: 300px;
-      height: 300px;
-    }
-  </style>
   <body>
-    <form action="">
-      <div class="row desc">
-        <div class="col-md-12 col-lg-6 text-center img-zoom-container">
-          <img id="myimage" src="img/g.jpg" class="w-75" alt="Girl" />
-          <div id="myresult" class="img-zoom-result"></div>
-        </div>
-        <div class="col-md-12 col-lg-6 d-flex align-items-center">
-          <div class="row px-5 mx-2 p-info">
-            <div class="col-12 p-name mar">
-              Samsung Z Flip 3
-            </div>
-            <div class="col-12 p-price mar">
-              2,460,000 ks
-            </div>
-            <div class="col mar">
-              Availibility : <span class="p-instock">3 left in stock</span>
-            </div>
-            <div class="col-12 p-qua mar position-relative d-flex">
-              Quantity :
-              <div class="position-relative">
-                <input type="number" value="0" id="quantity" class="p-input" />
-                <span class="in-icon" onclick="increaseQ()">+</span>
-                <span class="de-icon" onclick="decreaseQ()">-</span>
-              </div>
-            </div>
-            <div class="col-12 mar">
-              Storage :
-              <select name="" id="" class="form-control">
-                <option value="">128 GB</option>
-                <option value="">256 GB</option>
-              </select>
-            </div>
-            <div class="col-12 mar d-flex align-items-center">
-              Color :
-              <div class="d-flex">
-                <span class="p-color p-color-code-1"></span>
-                <span class="p-color p-color-code-2"></span>
-                <span class="p-color p-color-code-3"></span>
-                <span class="p-color p-color-code-4"></span>
-                <span class="p-color p-color-code-5"></span>
-                <span class="p-color p-color-code-6"></span>
-              </div>
-            </div>
-            <div class="col-12 mar">
-              <button class="btn btn-dark add-to-cart" type="Submit" id="">
-                Add to Cart
-              </button>
-              <button class="btn btn-dark" type="Submit" id="">
-                Buy Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="des-title">Product details of Samsung Z Flip 3</div>
-      <div class="des-p">
-        <ul>
-          <li>Battery : 3300 mAh</li>
-          <li>Network : GSM / CDMA / HSPA / EVDO / LTE / 5G</li>
-          <li>Resolution : 1080 x 2640 pixels (~426 ppi density)</li>
-          <li>LCD Size : 6.7 inches, 101.5 cm2</li>
-          <li>Main Camera : 12 MP, f/1.8, 27mm (wide)</li>
-          <li>Selfie Camera : 10 MP, f/2.4, 26mm (wide)</li>
-          <li>
-            CPU : Octa-core (1x2.84 GHz Kryo 680 & 3x2.42 GHz Kryo 680 & 4x1.80
-            GHz Kryo 680)
-          </li>
-          <li>GPU : Adreno 660</li>
-          <li>Weight : 183 g</li>
-          <li>Charging : Fast Charging 15W, Fast wireless charging 10W</li>
-          <li>
-            Android OS : Android 11, upgradable to Android 12, One UI 4.0
-          </li>
-          <li>Bluetooth : 5.1</li>
-          <li>
-            WLAN : Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hotspot
-          </li>
-          <li>Chipset : Qualcomm SM8350 Snapdragon 888 5G (5 nm)</li>
-        </ul>
-      </div>
-    </form>
-    <script>
-      function imageZoom(imgID, resultID) {
-        var img, lens, result, cx, cy;
-        img = document.getElementById(imgID);
-        result = document.getElementById(resultID);
-        /* Create lens: */
-        lens = document.createElement("DIV");
-        lens.setAttribute("class", "img-zoom-lens");
-        /* Insert lens: */
-        img.parentElement.insertBefore(lens, img);
-        /* Calculate the ratio between result DIV and lens: */
-        cx = result.offsetWidth / lens.offsetWidth;
-        cy = result.offsetHeight / lens.offsetHeight;
-        /* Set background properties for the result DIV */
-        result.style.backgroundImage = "url('" + img.src + "')";
-        result.style.backgroundSize =
-          img.width * cx + "px " + img.height * cy + "px";
-        /* Execute a function when someone moves the cursor over the image, or the lens: */
-        lens.addEventListener("mousemove", moveLens);
-        img.addEventListener("mousemove", moveLens);
-        /* And also for touch screens: */
-        lens.addEventListener("touchmove", moveLens);
-        img.addEventListener("touchmove", moveLens);
-        function moveLens(e) {
-          var pos, x, y;
-          /* Prevent any other actions that may occur when moving over the image */
-          e.preventDefault();
-          /* Get the cursor's x and y positions: */
-          pos = getCursorPos(e);
-          /* Calculate the position of the lens: */
-          x = pos.x - lens.offsetWidth / 2;
-          y = pos.y - lens.offsetHeight / 2;
-          /* Prevent the lens from being positioned outside the image: */
-          if (x > img.width - lens.offsetWidth) {
-            x = img.width - lens.offsetWidth;
-          }
-          if (x < 0) {
-            x = 0;
-          }
-          if (y > img.height - lens.offsetHeight) {
-            y = img.height - lens.offsetHeight;
-          }
-          if (y < 0) {
-            y = 0;
-          }
-          /* Set the position of the lens: */
-          lens.style.left = x + "px";
-          lens.style.top = y + "px";
-          /* Display what the lens "sees": */
-          result.style.backgroundPosition =
-            "-" + x * cx + "px -" + y * cy + "px";
-        }
-        function getCursorPos(e) {
-          var a,
-            x = 0,
-            y = 0;
-          e = e || window.event;
-          /* Get the x and y positions of the image: */
-          a = img.getBoundingClientRect();
-          /* Calculate the cursor's x and y coordinates, relative to the image: */
-          x = e.pageX - a.left;
-          y = e.pageY - a.top;
-          /* Consider any page scrolling: */
-          x = x - window.pageXOffset;
-          y = y - window.pageYOffset;
-          return { x: x, y: y };
-        }
-      }
-      imageZoom("myimage", "myresult");
-    </script>
+    <div class="container loader">
+      <span>L</span>
+      <span>O</span>
+      <span>A</span>
+      <span>D</span>
+      <span>I</span>
+      <span>N</span>
+      <span>G</span>
+    </div>
   </body>
 </html>
+~

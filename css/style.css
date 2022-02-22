@@ -367,7 +367,10 @@ hr {
     display: none;
     transition: 0.5s;
   }
-
+  .cart-item-detail {
+    font-size: 0.75rem;
+    padding: 0 !important;
+  }
   .bars-icon {
     display: block;
     padding: 0 1rem;
@@ -390,6 +393,23 @@ hr {
   }
   .search-icon-1 {
     display: none;
+  }
+  .cart-g {
+    align-items: flex-start !important;
+  }
+  .p-15 {
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  .cart-info-2 {
+    display: none;
+  }
+  .cart-title {
+    margin: 0.75rem 0.5rem !important;
+    padding: 0.5rem !important;
+  }
+  .cart-info {
+    font-size: 1rem;
   }
   .search-icon-2 {
     position: absolute;
